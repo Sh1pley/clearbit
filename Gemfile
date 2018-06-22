@@ -17,4 +17,7 @@ gem "shotgun"
 
 # Clearbit
 gem 'clearbit'
+# Plaid
+gem 'plaid'
+
 # gem "rails"
