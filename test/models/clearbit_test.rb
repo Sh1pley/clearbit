@@ -12,6 +12,6 @@ class ClearbitTest < Minitest::Test
     cb = Clearbit.new
     info = cb.get_domain('Clearbit')
 
-    refute info.empty
+    refute info.nil?
   end
 end
