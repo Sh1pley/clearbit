@@ -5,13 +5,15 @@ require "test_helper"
 
 class ClearbitTest < Minitest::Test
   def test_clearbit_exists
-    assert Clearbit.new
+    assert ClearbitService.new
   end
 
   def test_clearbit_can_access_domain_info
-    cb = Clearbit.new
+    cb = ClearbitService.new
     info = cb.get_domain('Clearbit')
 
     refute info.nil?
+    assert_equal info.name, "Clearbit"
+    assert_equal info.domain, "clearbit.com"
   end
 end

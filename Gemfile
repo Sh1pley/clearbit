@@ -4,10 +4,17 @@ source "https://rubygems.org"
 
 git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 
+# Debug?
+gem 'pry'
 # Tests!
 gem "minitest"
+# ENV
+gem 'dotenv'
 # Http stuff
 gem "sinatra"
 gem "thin"
 gem "shotgun"
+
+# Clearbit
+gem 'clearbit'
 # gem "rails"
