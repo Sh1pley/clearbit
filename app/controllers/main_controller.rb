@@ -4,7 +4,7 @@ require_relative '../services/plaid_service'
 require_relative '../models/processed_transactions'
 
 class MainController < Sinatra::Base
-  pid = Process.spawn('./node_modules/.bin/webpack-dev-server')
+  pid = Process.spawn('./node_modules/.bin/webpack-dev-server --port 9090')
   Process.detach(pid)
   puts "webpack pid: #{pid}"
 
