@@ -3,7 +3,7 @@ require 'rack-proxy'
 
 class AppProxy < Rack::Proxy
   def rewrite_env(env)
-    env['HTTP_HOST'] = 'localhost:8888'
+    env['HTTP_HOST'] = 'localhost:9090'
     env
   end
 end

@@ -1,0 +1,24 @@
+{
+  "name": "clearbit",
+  "version": "1.0.0",
+  "main": "webpack.config.js",
+  "repository": "https://github.com/Sh1pley/clearbit.git",
+  "author": "Jesse <jesse.r.shipley@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^16.4.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "jsx-loader": "^0.13.2",
+    "react-dom": "^16.4.1",
+    "react-hot-loader": "^4.3.3",
+    "webpack": "^4.12.1",
+    "webpack-cli": "^3.0.8",
+    "webpack-dev-server": "^3.1.4",
+    "webpack-module-hot-accept": "^1.0.5"
+  }
+}
