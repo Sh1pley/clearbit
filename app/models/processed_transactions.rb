@@ -30,7 +30,7 @@ class ProcessedTransactions
   end
 
   # self method to initialize processing of Plaid response into prettier format
-  def self.process(resp_obj)
+  def self.process(resp_obj, pretty = false)
     # Array collector for return
     processed_list = []
     # 1 take resp, and separate by name
@@ -40,7 +40,11 @@ class ProcessedTransactions
       names_hash[i.name] << Transaction.new(i).pretty
     end
     # 3 for each separated :name :transaction_list send to processedTransactions
-    names_hash.each { |k, v| processed_list << new(k, v).pretty}
+    if pretty
+      names_hash.each { |k, v| processed_list << new(k, v).pretty}
+    else
+      names_hash.each { |k, v| processed_list << new(k, v)}
+    end
 
    return processed_list
   end

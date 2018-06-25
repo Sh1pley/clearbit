@@ -9,7 +9,7 @@ class MainController < Sinatra::Application
     plaid = PlaidService.new
     client = plaid.get_client
     data = PlaidService.get_transactions(client)
-    transactions = ProcessedTransactions.process(data)
+    transactions = ProcessedTransactions.process(data, true)
 
     json transactions
   end
