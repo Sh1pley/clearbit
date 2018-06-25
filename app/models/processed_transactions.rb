@@ -2,6 +2,7 @@ require_relative "../services/clearbit_service"
 require_relative "transaction"
 
 class ProcessedTransactions
+
   attr_reader :name,
                     :domain,
                     :transactions,
@@ -36,11 +37,17 @@ class ProcessedTransactions
     names_hash = get_names_hash(resp_obj)
     # 2 for each name add transaction
     resp_obj[:transactions].each do |i|
-      names_hash[i.name] << Transaction.new(i)
+      names_hash[i.name] << Transaction.new(i).pretty
     end
     # 3 for each separated :name :transaction_list send to processedTransactions
-    names_hash.each { |k, v| processed_list << new(k, v)}
-    return processed_list
+    names_hash.each { |k, v| processed_list << new(k, v).pretty}
+
+   return processed_list
+  end
+
+  def pretty
+    response = {name: name, domain: domain, transactions: transactions, recurring: recurring}
+    return response.to_json
   end
 
   private
@@ -50,5 +57,6 @@ class ProcessedTransactions
     list.each { |name| hash[name] = [] }
     return hash
   end
+
 
 end

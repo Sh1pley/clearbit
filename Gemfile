@@ -12,6 +12,7 @@ gem "minitest"
 gem 'dotenv'
 # Http stuff
 gem "sinatra"
+gem "sinatra-contrib"
 gem "thin"
 gem "shotgun"
 

@@ -14,4 +14,9 @@ class Transaction
     @pending = data.pending
     @transaction_type = data.transaction_type
   end
+
+  def pretty
+    response = {amount: amount, account_id: account_id, category: category, date: date, pending: pending, type: transaction_type}
+    return response
+  end
 end
