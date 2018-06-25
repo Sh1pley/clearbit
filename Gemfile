@@ -5,20 +5,21 @@ source "https://rubygems.org"
 git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 
 # Debug?
-gem 'pry'
+gem "pry"
 # Tests!
 gem "minitest"
 # ENV
-gem 'dotenv'
+gem "dotenv"
 # Http stuff
 gem "sinatra"
 gem "sinatra-contrib"
 gem "thin"
 gem "shotgun"
+gem "rack-proxy"
 
 # Clearbit
-gem 'clearbit'
+gem "clearbit"
 # Plaid
-gem 'plaid'
+gem "plaid"
 
 # gem "rails"
