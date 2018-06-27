@@ -1,0 +1,31 @@
+ul {
+  list-style-type: none;
+}
+
+.item-card {
+  border: 1px #c7c4c4 solid;
+  border-radius: 2px;
+  box-shadow: 1px 0 #a5a3a3;
+  padding: 5px;
+  margin-bottom: .5rem;
+  width: 30%;
+}
+
+.item-card:hover {
+  box-shadow: 0 2px 3px 2px #a5a3a3;
+}
+.item-head {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  left: .5rem;
+}
+
+.item-logo {
+  height: 4rem;
+  width: 4rem;
+}
+
+.fail {
+  border-color: red;
+}
