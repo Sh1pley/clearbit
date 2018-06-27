@@ -6,7 +6,8 @@
   "author": "Jesse <jesse.r.shipley@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "react": "^16.4.1"
+    "react": "^16.4.1",
+    "request": "^2.87.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",

@@ -14,7 +14,6 @@ gem "dotenv"
 gem "sinatra"
 gem "sinatra-contrib"
 gem "thin"
-gem "shotgun"
 gem "rack-proxy"
 
 # Clearbit
