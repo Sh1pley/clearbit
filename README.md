@@ -9,12 +9,14 @@
       - ###### *must have weback-dev-server installed globally*
   - Unit testing for the Ruby/Sinatra side done in Minitest
     - ```rake test ``` (console) will run tests
+  - Basic styling with raw CSS and HTML
 
 ## To do:
-  - More tests (Front-end especially)
+  - More tests (Front-end especially I need to work more on optimizing webpack to work with React and Jest tests)
   - GET /api/test request is pretty slow, look into optimizing
   - Env variables used instead of Plaids Link API
     - *could add user sign in*
+  - Could use Material UI or Bootstrap to pretty it up a bit
 
 ### Set up needed:
     
@@ -30,3 +32,5 @@ PLAID_ACCESS_TOKEN is made through using Plaids Link service.
 All other access keys are assigned through API signups on Clearbit and Plaid websites.
 
 These should be added to a .env file in the projects root directory
+##### If needed, I can send you a copy of my .env file to test this out locally
+##### You may email me directly at jesse.r.shipley@gmail.com for questions
