@@ -5,7 +5,7 @@
   - Front-end through rack-proxy
     - React base component from localhost:9292/
   - Webpack configuration
-    - whole thing launch with: ``` rackup ```  (console)
+    - whole thing launched with: ``` rackup ```  (console)
       - ###### *must have weback-dev-server installed globally*
 
   - Unit testing for the Ruby/Sinatra side done in Minitest
