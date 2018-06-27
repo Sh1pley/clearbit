@@ -14,4 +14,16 @@ class ProcessedTransactionsTest < Minitest::Test
     assert transactions[0].recurring != nil
   end
 
+  def test_recurring_returns_bool
+    plaid = PlaidService.new
+    client = plaid.get_client
+    data = PlaidService.get_transactions(client)
+    transactions = ProcessedTransactions.process(data)
+
+    results = transactions.map {|t| t.recurring}
+   
+    assert results.include? true
+    assert results.include? false
+  end
+
 end

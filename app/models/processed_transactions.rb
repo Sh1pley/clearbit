@@ -20,7 +20,21 @@ class ProcessedTransactions
   end
   
   def check_recurring
-    return true
+    recurring = false
+    # fast fail if < 2
+    if transactions.count < 2
+      return recurring
+    else
+    # parse all transactions
+      transactions.each_with_index do |t, i|
+        # check compare amounts
+        if transactions[i + 1] && t[:amount] == transactions[i + 1][:amount]
+          recurring = true
+          # if monthly and amount match return true if necessary?
+        end
+      end
+    end
+    return recurring
   end
 
   def fetch_domain
