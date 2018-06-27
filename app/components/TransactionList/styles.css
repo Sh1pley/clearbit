@@ -1,0 +1,54 @@
+ul {
+  list-style-type: none;
+}
+
+.item-card {
+  border: 1px #c7c4c4 solid;
+  border-radius: 2px;
+  box-shadow: 1px 0 #a5a3a3;
+  padding: 5px;
+  margin-bottom: .5rem;
+}
+
+.item-card:hover {
+  box-shadow: 0 2px 3px 2px #a5a3a3;
+}
+
+.item-card:active {
+  background-color: #2b7cff7c;
+}
+
+.item-head {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  left: .5rem;
+}
+
+.item-logo {
+  height: 4rem;
+  width: 4rem;
+}
+
+.fail {
+  border-color: red;
+}
+
+.transactions-container {
+  display:flex;
+  height: 100%;
+  width: 100%;
+  flex-direction: row;
+}
+
+.transactions-list {
+  flex: 1;
+  width: 44%;
+  margin: 0 3%;
+}
+
+.transaction-detail {
+  flex: 1;
+  width: 44%;
+  margin: 0 3%;
+}
