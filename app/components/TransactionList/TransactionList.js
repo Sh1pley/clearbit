@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import TransactionDetails from './TransactionDetails';
+import TransactionItem from './TransactionItem';
 import './styles.css';
 
 let transactionData = [];
@@ -6,7 +8,8 @@ class TransactionList extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      loading: true
+      loading: true,
+      transactions: []
     }
   }
 
@@ -15,6 +18,10 @@ class TransactionList extends Component {
       .then(resp => resp.json())
       .then(data => this.handleData(data))
       .catch(err => console.log("whoops: ", err))
+  }
+
+  handleClick(transactions) {
+    this.setState({transactions})
   }
 
   handleData(data) {
@@ -27,28 +34,11 @@ class TransactionList extends Component {
     await this.fetchData();
   }
 
-  checkDomain(item) {
-    if (item.domain) {
-       return <div className="item-card">
-                    <div className="item-head">
-                      <img  className="item-logo" src={item.domain.logo} alt={item.domain.name + "-icon"}/>
-                      <div className="item-name">{item.domain.name}</div>
-                  </div>
-                  <div className="item-recurring">Recurring Transaction: {item.recurring.toString()}</div>
-                </div>
-    }
-      else return <div className="item-card fail">
-                          <div className="item-name">Domain Not found</div>
-                          <div className="item-raw-name">Transaction Name: {item.name}</div>
-                          <div className="item-recurring">Recurring Transaction: {item.recurring.toString()}</div>
-                        </div>
-  }
-
   buildItem(data) {
    let item = JSON.parse(data);
      return <li key={item.name}>
         <div className="item-container">
-         {this.checkDomain(item)}
+         <TransactionItem onClick={() => this.handleClick(item.transactions)} item={item} />
         </div>
       </li>
   }
@@ -61,7 +51,10 @@ class TransactionList extends Component {
       ? <div>Results: {Transactions(transactionData)}</div>
       : <div>Loading ...</div>
     return (
-      <div>{Loading}</div>
+      <div className="transactions-container">
+        <div className="transactions-list">{Loading}</div>
+        <div className="transaction-detail"><TransactionDetails transactions={this.state.transactions} /></div>
+      </div>
     )
   }
 }
