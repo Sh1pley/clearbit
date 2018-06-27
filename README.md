@@ -7,13 +7,13 @@
   - Webpack configuration
     - whole thing launched with: ``` rackup ```  (console)
       - ###### *must have weback-dev-server installed globally*
-
   - Unit testing for the Ruby/Sinatra side done in Minitest
     - ```rake test ``` (console) will run tests
 
 ## To do:
   - More tests (Front-end especially)
-  - Env variables used instead of Plaids sign
+  - GET /api/test request is pretty slow, look into optimizing
+  - Env variables used instead of Plaids Link API
     - *could add user sign in*
 
 ### Set up needed:
