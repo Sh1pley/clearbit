@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import './styles.css';
 
 let transactionData = [];
 class TransactionList extends Component {
@@ -23,35 +24,38 @@ class TransactionList extends Component {
   }
 
   async componentWillMount() {
-    const response = await this.fetchData();
+    await this.fetchData();
   }
 
   checkDomain(item) {
     if (item.domain) {
-       return <div>
-            <div className="item-name">{item.domain.name}</div>
-            <div className="item-logo"><img src={item.domain.logo} alt={item.domain.name + "-icon"}/></div>
-      <div className="item-recurring">Recurring Transaction: {item.recurring.toString()}</div>
-          </div>
+       return <div className="item-card">
+                    <div className="item-head">
+                      <img  className="item-logo" src={item.domain.logo} alt={item.domain.name + "-icon"}/>
+                      <div className="item-name">{item.domain.name}</div>
+                  </div>
+                  <div className="item-recurring">Recurring Transaction: {item.recurring.toString()}</div>
+                </div>
     }
-      else return <div>
-      <div className="item-name">Domain Not found</div>
-      <div className="item-raw-name">Transaction Name: {item.name}</div>
-      <div className="item-recurring">Recurring Transaction: {item.recurring.toString()}</div>
-    </div>
+      else return <div className="item-card fail">
+                          <div className="item-name">Domain Not found</div>
+                          <div className="item-raw-name">Transaction Name: {item.name}</div>
+                          <div className="item-recurring">Recurring Transaction: {item.recurring.toString()}</div>
+                        </div>
   }
+
   buildItem(data) {
-   let item = JSON.parse(data)
-   console.log(item)
+   let item = JSON.parse(data);
      return <li key={item.name}>
         <div className="item-container">
          {this.checkDomain(item)}
         </div>
       </li>
   }
+
   render() {
     const Transactions = (data) => {
-      return <ul>{data.map( t =>this.buildItem(t))}</ul>
+      return <ul>{data.map( t => this.buildItem(t))}</ul>
     }
     const Loading = !this.state.loading && transactionData.length
       ? <div>Results: {Transactions(transactionData)}</div>
