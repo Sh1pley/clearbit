@@ -1,5 +1,6 @@
 require_relative "../services/clearbit_service"
 require_relative "transaction"
+require "date"
 
 class ProcessedTransactions
 
@@ -15,10 +16,18 @@ class ProcessedTransactions
   def create(name, transactions)
     @name = name
     @domain = fetch_domain
-    @transactions = transactions
+    @transactions = transactions.sort_by {|h| h[:date]}.reverse
     @recurring = check_recurring
   end
-  
+
+  def check_amount(t, i)
+    t[:amount] == transactions[i+1][:amount]
+  end
+
+  def check_date(t, i)
+    Date.parse(t[:date]).month == Date.parse(transactions[i+1][:date]).next_month.month
+  end
+
   def check_recurring
     recurring = false
     # fast fail if < 2
@@ -27,10 +36,9 @@ class ProcessedTransactions
     else
     # parse all transactions
       transactions.each_with_index do |t, i|
-        # check compare amounts
-        if transactions[i + 1] && t[:amount] == transactions[i + 1][:amount]
+        # check compare amounts / dates
+        if  transactions[i+1] && check_date(t, i) && check_amount(t, i)
           recurring = true
-          # if monthly and amount match return true if necessary?
         end
       end
     end

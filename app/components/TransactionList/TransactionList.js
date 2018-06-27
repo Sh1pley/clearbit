@@ -30,12 +30,14 @@ class TransactionList extends Component {
     if (item.domain) {
        return <div>
             <div className="item-name">{item.domain.name}</div>
-            <div className="item-logo">{item.domain.logo}</div>
+            <div className="item-logo"><img src={item.domain.logo} alt={item.domain.name + "-icon"}/></div>
+      <div className="item-recurring">Recurring Transaction: {item.recurring.toString()}</div>
           </div>
     }
       else return <div>
       <div className="item-name">Domain Not found</div>
       <div className="item-raw-name">Transaction Name: {item.name}</div>
+      <div className="item-recurring">Recurring Transaction: {item.recurring.toString()}</div>
     </div>
   }
   buildItem(data) {
